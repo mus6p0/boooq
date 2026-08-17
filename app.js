@@ -1,0 +1,16 @@
+const rooms=[
+ {name:'Lake View Apartment',desc:'Göl manzarası, özel mutfak ve ferah yaşam alanı.',meta:'2–4 kişi · Göl manzarası',price:3200,img:'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85'},
+ {name:'Garden View Apartment',desc:'Bahçeye açılan sakin bir alan, modern ve konforlu.',meta:'2–4 kişi · Bahçe manzarası',price:2800,img:'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=85'},
+ {name:'Ground Floor Apartment',desc:'Kolay erişim, özel mutfak ve geniş iç yaşam alanı.',meta:'2–5 kişi · Zemin kat',price:3000,img:'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85'}
+];
+const $=s=>document.querySelector(s); const roomsEl=$('#rooms');
+function money(n){return new Intl.NumberFormat('tr-TR',{style:'currency',currency:'TRY',maximumFractionDigits:0}).format(n)}
+function renderRooms(){roomsEl.innerHTML=rooms.map((r,i)=>`<article class="room"><div class="room-img" style="background-image:url('${r.img}')"><span class="room-badge">${i===0?'En çok tercih edilen':'Auga Apart'}</span></div><div class="room-body"><h3>${r.name}</h3><p>${r.desc}</p><div class="room-meta"><small>${r.meta}</small><span class="price">${money(r.price)} <span>/ gece</span></span></div><button class="btn room-book" data-index="${i}">Bu apartı seç →</button></div></article>`).join('');
+ document.querySelectorAll('.room-book').forEach(b=>b.onclick=()=>openModal(rooms[+b.dataset.index]));}
+function days(){const a=new Date($('#checkin').value),b=new Date($('#checkout').value);return a&&b?(b-a)/86400000:0}
+function openModal(room){if(!$('#checkin').value||!$('#checkout').value){$('#checkin').focus();alert('Önce giriş ve çıkış tarihlerinizi seçin.');return}const d=days();if(d<1){alert('Çıkış tarihi girişten sonra olmalı.');return}$('#selectedRoom').innerHTML=`<div class="selected"><b>${room.name}</b>${$('#checkin').value} → ${$('#checkout').value} · ${d} gece<br><strong>${money(room.price*d)}</strong> toplam</div>`;$('#modal').classList.add('open');$('#modal').setAttribute('aria-hidden','false');$('#bookingForm').dataset.room=room.name;}
+$('#closeModal').onclick=()=>$('#modal').classList.remove('open');$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('open')};
+$('#rezervasyon').onsubmit=e=>{e.preventDefault();document.querySelector('#rooms').scrollIntoView({behavior:'smooth'});};
+$('#bookingForm').onsubmit=e=>{e.preventDefault();const f=new FormData(e.target);const msg=`Merhaba Auga Apart, %0A%0ARezervasyon talebi:%0A${f.get('name')}%0A${f.get('phone')}%0A${f.get('email')}%0A%0AApart: ${e.target.dataset.room}%0ATarih: ${$('#checkin').value} → ${$('#checkout').value}%0A${f.get('note')||''}`;window.open('https://wa.me/905467923190?text='+msg,'_blank');};
+const today=new Date(); const iso=d=>d.toISOString().slice(0,10);$('#checkin').min=iso(today);const tomorrow=new Date(today);tomorrow.setDate(today.getDate()+1);$('#checkout').min=iso(tomorrow);$('#checkin').value=iso(today);$('#checkout').value=iso(tomorrow);$('#checkin').onchange=()=>{const d=new Date($('#checkin').value);d.setDate(d.getDate()+1);$('#checkout').min=iso(d);if($('#checkout').value<$('#checkout').min)$('#checkout').value=iso(d)};
+renderRooms();
