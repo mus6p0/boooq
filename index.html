@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Auga Apart Uzungöl — göl ve dağ manzaralı apart konaklama. Müsaitlik ve rezervasyon.">
+  <title>Auga Apart — Uzungöl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topline"><span>Uzungöl, Trabzon</span><span>Rezervasyon & destek: +90 546 792 31 90</span></div>
+  <header class="nav wrap">
+    <a class="brand" href="#top"><span class="brand-mark">A</span><span>AUGA <small>APART</small></span></a>
+    <nav><a href="#konaklama">Konaklama</a><a href="#deneyim">Deneyim</a><a href="#konum">Konum</a></nav>
+    <div class="nav-actions"><button id="langBtn" class="ghost">EN</button><a class="btn small" href="#rezervasyon">Rezervasyon</a></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-media"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content wrap">
+        <div class="eyebrow">UZUNGÖL · TRABZON</div>
+        <h1>Doğanın içinde,<br><em>kendinize ait</em> bir alan.</h1>
+        <p>Gölün sakinliği, dağların ferahlığı ve ev konforu. Auga Apart'ta Uzungöl'ü kendi ritminizde yaşayın.</p>
+        <div class="rating"><strong>9.0</strong><span>Booking.com<br><small>76 değerlendirme</small></span></div>
+      </div>
+      <form class="search-card wrap" id="rezervasyon">
+        <div class="field"><label>Giriş</label><input id="checkin" type="date" required></div>
+        <div class="field"><label>Çıkış</label><input id="checkout" type="date" required></div>
+        <div class="field"><label>Misafir</label><select id="guests"><option value="2">2 yetişkin</option><option value="3">3 yetişkin</option><option value="4">4 yetişkin</option><option value="5">5 yetişkin</option><option value="7">7 yetişkin</option></select></div>
+        <button class="btn search-btn" type="submit">Müsaitliği Gör <span>→</span></button>
+      </form>
+    </section>
+
+    <section class="section wrap" id="konaklama">
+      <div class="section-head"><div><div class="eyebrow dark">KONAKLAMA</div><h2>Size uygun apartı seçin.</h2></div><p>Tüm daireler özel banyo, mutfak ve yaşam alanı sunar. Tarih seçtiğinizde fiyat ve müsaitlik güncellenir.</p></div>
+      <div id="rooms" class="rooms"></div>
+    </section>
+
+    <section class="feature-band" id="deneyim"><div class="wrap feature-grid">
+      <div><div class="eyebrow">AUGA APART</div><h2>Uzungöl'e yakın.<br>Kalabalıktan uzak.</h2><p>Göl ve yayla yaklaşık 17 dakikalık yürüme mesafesinde. Özel otopark, ücretsiz Wi‑Fi, bahçe ve mutfaklı apartlar ile uzun ya da kısa konaklamalara hazır.</p><a class="text-link" href="#konum">Konumu keşfet →</a></div>
+      <div class="stats"><div><strong>9.0</strong><span>Misafir puanı</span></div><div><strong>9.1</strong><span>Temizlik</span></div><div><strong>9.2</strong><span>Personel</span></div><div><strong>24/7</strong><span>Resepsiyon</span></div></div>
+    </div></section>
+
+    <section class="section wrap amenities"><div class="eyebrow dark">KONFOR</div><h2>İhtiyacınız olan her şey.</h2><div class="amenity-grid"><div><b>⌂</b><span>Özel mutfak</span></div><div><b>⌁</b><span>Dağ & göl manzarası</span></div><div><b>◌</b><span>Ücretsiz Wi‑Fi</span></div><div><b>▱</b><span>Ücretsiz özel otopark</span></div><div><b>✦</b><span>Havaalanı transferi</span></div><div><b>♧</b><span>Bahçe & açık alan</span></div></div></section>
+
+    <section class="location" id="konum"><div class="wrap location-grid"><div><div class="eyebrow dark">KONUM</div><h2>Uzungöl'ün<br>kalbinde.</h2><p>Uzungöl Mahallesi Cami Sokak No:51, 61940 Uzungöl / Trabzon</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Auga+Apart+Uzungol" target="_blank">Google Maps'te aç →</a></div><div class="map-card"><div class="map-pin">A</div><div><strong>Uzungöl Gölü</strong><span>~17 dk yürüyüş</span></div></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-grid"><div class="brand"><span class="brand-mark">A</span><span>AUGA <small>APART</small></span></div><div><span>Uzungöl · Trabzon</span><span>+90 546 792 31 90</span></div><div><a href="https://wa.me/905467923190" target="_blank">WhatsApp</a><a href="https://www.booking.com/hotel/tr/auga-apart.html" target="_blank">Booking.com</a></div></div></footer>
+  <a class="whatsapp" href="https://wa.me/905467923190?text=Merhaba%20Auga%20Apart%2C%20rezervasyon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" aria-label="WhatsApp destek">◔<span>WhatsApp</span></a>
+  <div class="modal" id="modal" aria-hidden="true"><div class="modal-box"><button class="close" id="closeModal">×</button><div class="eyebrow dark">REZERVASYON</div><h3>Konaklamanızı tamamlayın.</h3><div id="selectedRoom"></div><form id="bookingForm"><input name="name" placeholder="Ad soyad" required><input name="phone" placeholder="Telefon" required><input name="email" type="email" placeholder="E-posta" required><textarea name="note" placeholder="Özel isteğiniz (opsiyonel)"></textarea><button class="btn" type="submit">Rezervasyon talebi gönder →</button><small>Talebiniz güvenli şekilde iletilir. Kesin fiyat/müsaitlik channel manager bağlantısından doğrulanır.</small></form></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
